@@ -235,6 +235,50 @@ class PartialParse(object):
             raise ValueError('PartialParse already completed')
         transition_id, deprel = -1, None
         # *** BEGIN YOUR CODE ***
+
+        # help function
+        def check_if_dep(g, x, y):
+            all_deprel = g.nodes[x]['deps'].keys()
+            for d in all_deprel:
+                nodes = g.nodes[x]['deps'][d]
+                if y in nodes:
+                    return d
+            return -1
+
+        # shift when stack only has root
+        if len(self.stack) == 1:
+            transition_id = self.shift_id
+        else:
+            # check left arc
+            relation = check_if_dep(graph, self.stack[-1], self.stack[-2])
+            if relation != -1:
+                # print('herehere', relation)
+                transition_id = self.left_arc_id
+                deprel = relation
+            else:
+                # check right arc
+                relation = check_if_dep(graph, self.stack[-2], self.stack[-1])
+                if relation == -1:
+                    if self.next < len(self.sentence):
+                        transition_id = self.shift_id
+                    else:
+                        # print(self.next, len(self.sentence), self.stack)
+                        raise ValueError('buffer empty when shifting')
+                else:
+                    # check if all dependants of stack[-1] have already been add to arc
+                    deps_already_added = len([arc[1] for arc in self.arcs if arc[0] == self.stack[-1]])
+                    total_dependants = len(list(get_deps(graph.nodes[self.stack[-1]])))
+                    if deps_already_added >= total_dependants:
+                        # perform right arc
+                        # print('right===', relation)
+                        transition_id = self.right_arc_id
+                        deprel = relation
+                    else:
+                        if self.next < len(self.sentence):
+                            transition_id = self.shift_id
+                        else:
+                            raise ValueError('buffer empty when shifting')
+
         # *** END YOUR CODE ***
         return transition_id, deprel
 
@@ -301,8 +345,6 @@ def minibatch_parse(sentences, model, batch_size):
                     unfinished_parse.remove(parser)
             except ValueError:
                 unfinished_parse.remove(parser)
-    # for parser in parse_list:
-    #     print(parser.arcs)
     arcs = [parser.arcs for parser in parse_list]
     # *** END YOUR CODE ***
     return arcs

@@ -25,6 +25,8 @@ def he_initializer(shape, **kwargs):
     Hint: You might find torch.normal() useful.
     """
     # *** BEGIN YOUR CODE ***
+    sigma = torch.sqrt(torch.tensor(2.0)/torch.tensor(shape[0]))
+    out = torch.normal(0.0, sigma, size=shape)
     # *** END YOUR CODE ***
     return out
 

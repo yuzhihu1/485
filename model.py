@@ -73,6 +73,11 @@ class ParserModel(nn.Module):
                 matrix of pre-trained word embeddings
         """
         # *** BEGIN YOUR CODE ***
+        print(self.config.n_word_ids, self.config.n_tag_ids, self.config.n_deprel_ids,
+              self.config.n_word_features, self.config.n_tag_features, self.config.n_deprel_features, self.config.embed_size)
+        self.word_embeddings = torch.tensor(word_embeddings, requires_grad=True)
+        self.tag_embeddings = he_initializer((self.config.n_tag_ids, self.config.embed_size)).requires_grad_()
+        self.deprel_embeddings = he_initializer((self.config.n_deprel_ids, self.config.embed_size)).requires_grad_()
         # *** END YOUR CODE ***
 
     def create_weights_biases(self):
@@ -109,6 +114,12 @@ class ParserModel(nn.Module):
            and bias tensors (see the PyTorch tutorials for more details).
         """
         # *** BEGIN YOUR CODE ***
+        self.W_h = he_initializer(((self.config.n_word_features + self.config.n_tag_features +
+                                   self.config.n_deprel_features)*self.config.embed_size,
+                                   self.config.hidden_size)).requires_grad_()
+        self.b_h = torch.zeros(self.config.hidden_size)
+        self.W_o = he_initializer((self.config.hidden_size, self.config.n_classes))
+        self.b_o = torch.zeros(self.config.n_classes)
         # *** END YOUR CODE ***
 
     def embedding_lookup(self, id_batch, n_ids, embedding_matrix):
@@ -145,6 +156,11 @@ class ParserModel(nn.Module):
            more hints.
         """
         # *** BEGIN YOUR CODE ***
+        B, N = id_batch.size()[:2]
+        one_hot = one_hot_float(id_batch, n_ids).view(-1, n_ids)
+        embedded_batch = torch.mm(one_hot, embedding_matrix).view(B, N, -1)
+        embedded_batch = torch.reshape(embedded_batch, (B, -1))
+        return embedded_batch
         # *** END YOUR CODE ***
         return embedded_batch
 
@@ -175,6 +191,10 @@ class ParserModel(nn.Module):
            using torch.cat and return the result.
         """
         # *** BEGIN YOUR CODE ***
+        word = self.embedding_lookup(word_id_batch, self.config.n_word_ids, self.word_embeddings)
+        tag = self.embedding_lookup(tag_id_batch, self.config.n_tag_ids, self.tag_embeddings)
+        deprel = self.embedding_lookup(deprel_id_batch, self.config.n_deprel_ids, self.deprel_embeddings)
+        x = torch.cat((word, tag, deprel), 1)
         # *** END YOUR CODE ***
         return x
 
@@ -220,6 +240,9 @@ class ParserModel(nn.Module):
                                        torch.tensor(deprel_id_batch))
 
         # *** BEGIN YOUR CODE ***
+        h = F.relu(torch.mm(x, self.W_h) + self.b_h)
+        h_drop = F.dropout(h, self.config.dropout)
+        pred = torch.mm(h_drop, self.W_o) + self.b_o
         # *** END YOUR CODE ***
         return pred
 
@@ -242,6 +265,7 @@ class ParserModel(nn.Module):
             loss: A 0d tensor (scalar)
         """
         # *** BEGIN YOUR CODE ***
+        loss = F.cross_entropy(prediction_batch, class_batch)
         # *** END YOUR CODE ***
         return loss
 
@@ -260,6 +284,10 @@ class ParserModel(nn.Module):
           change the attribute name!
         """
         # *** BEGIN YOUR CODE ***
+        optimizer = torch.optim.Adam([self.word_embeddings,
+                                           self.tag_embeddings, self.deprel_embeddings,
+                                           self.W_h, self.b_h, self.W_o, self.b_o], self.config.lr)
+        self.optimizer = optimizer
         # *** END YOUR CODE ***
 
     def _fit_batch(self, word_id_batch, tag_id_batch, deprel_id_batch,
