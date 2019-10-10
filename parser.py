@@ -89,7 +89,7 @@ class PartialParse(object):
         # shift
         if transition_id == self.shift_id:
             # check if legal. check if buffer empty
-            if self.next == len(self.sentence):
+            if self.next >= len(self.sentence):
                 raise ValueError('buffer empty')
             else:
                 # update stack
@@ -99,23 +99,29 @@ class PartialParse(object):
         # left-arc
         elif transition_id == self.left_arc_id:
             # check is legal. check the number of elements in stack
-            if len(self.stack) < 3:
+            if len(self.stack) < 2:
                 raise ValueError('stack does not contain enough items')
             else:
-                # update arc
-                self.arcs.append((self.stack[-1], self.stack[-2], deprel))
-                # update stack
-                del self.stack[-2]
+                if deprel is None:
+                    raise ValueError('deprel None for left arc')
+                else:
+                    # update arc
+                    self.arcs.append((self.stack[-1], self.stack[-2], deprel))
+                    # update stack
+                    del self.stack[-2]
         # right-arc
         elif transition_id == self.right_arc_id:
             # check is legal. check the number of elements in stack
             if len(self.stack) < 2:
                 raise ValueError('stack does not contain enough items')
             else:
-                # update arc
-                self.arcs.append((self.stack[-2], self.stack[-1], deprel))
-                # update stack
-                del self.stack[-1]
+                if deprel is None:
+                    raise ValueError('deprel None for left arc')
+                else:
+                    # update arc
+                    self.arcs.append((self.stack[-2], self.stack[-1], deprel))
+                    # update stack
+                    del self.stack[-1]
         else:
             raise ValueError('transition id incorrect')
 
