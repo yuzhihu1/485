@@ -56,14 +56,3 @@ while test != "q":
         print("No Parses")
     passed = False
     test = input("type test: ")
-
-"""The addition of NP -> NP PP | Det N causes continuous loop of a 
-non-terminal pointing to a non-terminal. As such it causes an infinite 
-recursion. By switching it such that NP -> Det N | NP PP it appears to solve 
-the problem as by ending the NP-loop when the parser finds a noun preceded by a 
-determiner. Indeed this works well for the given example 
-of "my dog saw a man in the park". However, 
-this does not work in the general case as you cannot guarantee 
-that a noun will always have a determiner in front. As such, you cannot 
-guarantee that it won't reach NP -> NP PP. An example using the base ' \
-                     'vocabulary of the rdparser would be the sentence “Dogs ate man”. """
