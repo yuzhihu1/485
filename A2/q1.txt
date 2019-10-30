@@ -1,0 +1,15 @@
+S -> NP VP | VP | Aux NP VP | Wh Aux NP Vh | Wr Aux NP VP | Whp VP
+NP -> N | Det N | Adj N 
+PP -> P NP
+VP -> V Adv | V NP Adv | V NP Adv PP
+Whp -> Wh | Wh Aux
+Vh -> V | V Adv | V Adv PP
+Det -> 'the' | 'their' | 'your'
+Adj -> 'old' | 'red' | 'happy'
+Adv -> 'quickly' | 'slowly'
+N -> 'dogs' | 'parks' | 'statues' | 'people'
+V -> 'race' | 'walk' | 'eat'
+P -> 'in' | 'to' | 'on' | 'under' | 'with'
+Aux -> 'will' | 'should' 
+Wh -> 'who' | 'what'
+Wr -> 'where'
