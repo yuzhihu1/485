@@ -1,4 +1,5 @@
 import nltk
+nltk(nltk.app.rdparser())
+# nltk(nltk.app.srparser())
 
-nltk(nltk.app.srparser(), nltk.app.rdparser())
-# rd_parser = nltk.ShiftReduceParser(nltk.grammar)
+
