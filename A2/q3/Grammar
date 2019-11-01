@@ -1,0 +1,68 @@
+S -> NP VP 
+NP -> NP_simple | NPro_name | NPro_sub
+NP_obj -> NP_simple | NPro_name | NPro_obj
+NP_simple -> Det_Noun | Det_Noun PP | Adjp_Noun | Adjp_Noun PP | N | N PP
+
+
+VP -> AuxVP | V_p_NP_p | V_p_intrans_Ps | V_p_trans_np_that_p | V_p_trans_that_p
+AuxVP -> Passive_simple_p | prog_simple_p | Pfct_p | Modal_p
+
+
+% trans Vp
+V_p_NP_p -> V_p_NP | V_p_NP PP | V_p_NP Con S |  V_p_NP PVP
+V_p_NP -> V_p_trans NP_obj | Adv V_p_trans NP_obj | V_p_trans NP_obj Adv
+
+
+% Intrans Vp
+V_p_intrans_Ps -> V_p_intrans_p | V_p_intrans_p PP | V_p_intrans_musthavep_p PVP | V_p_intrans_con_p Con S
+
+V_p_intrans_p -> V_p_intrans | Adv V_p_intrans | V_p_intrans Adv
+
+
+V_p_intrans_musthavep_p -> V_p_intrans_musthavep | Adv V_p_intrans_musthavep | V_p_intrans_musthavep Adv 
+
+V_p_intrans_con_p ->  V_p_intrans_con | Adv V_p_intrans_con | V_p_intrans_con Adv
+
+
+% verbs follows by [that]
+V_p_trans_np_that_p -> V_p_trans_np_that NP_obj That S | Adv V_p_trans_np_that NP_obj That S | V_p_trans_np_that NP_obj Adv That S 
+V_p_trans_that_p -> V_p_trans_that That S | Adv V_p_trans_that That S | V_p_trans_that Adv That S
+
+
+
+V_pre_intrans_ps -> V_pre_intrans_p | V_pre_intrans_p PP | V_pre_intrans_p PVP | V_pre_intrans_p PVP
+V_pre_intrans_p -> V_pre_intrans | V_pre_intrans Adv | Adv V_pre_intrans
+
+V_pre_trans_ps -> V_pre_trans_p | V_pre_trans_p PP | V_pre_trans_p PVP
+V_pre_trans_p -> V_pre_trans NP_obj | V_pre_trans NP_obj Adv | Adv V_pre_trans NP_obj
+
+% Adj
+Adjp -> Adj Adjp | Adj 
+Adjp_Noun ->  Det_a Adjp N | Det_simple Adjp N_uncount | Adjp N
+
+
+Det_Noun -> Det_a N_a_simple | Det_an N_an | Det_simple N_uncount
+
+% PP
+PP -> P NP_obj
+PVP -> P V_pre_intrans_ps | P V_pre_trans_ps
+
+% Passvie
+Passive_simple_p -> Passive_simple V_pp_trans
+Passive_be_p -> Passive_be V_pp_trans
+Passive_pfct_p -> Passive_pfct V_pp_trans
+Passive_prog_p -> Passive_prog V_pp_trans
+
+% prog 
+prog_simple_p -> prog_simple V_ing_intrans
+prog_be_p -> prog_be V_ing_intrans
+prog_pfct_p -> prog_pfct V_ing_intrans
+
+Pfct_p -> Pfct V_pp_intrans | Pfct prog_pfct_p | Pfct Passive_pfct_p | Pfct Passive_pfct Passive_prog_p 
+pfct_have_p -> pfct_have V_pp_intrans | pfct_have prog_pfct_p | pfct_have Passive_pfct_p | pfct_have Passive_pfct Passive_prog_p
+Modal_p -> Modal V_pre_intrans | Modal pfct_have_p | Modal prog_be_p | Modal Passive_be_p
+
+
+
+
+

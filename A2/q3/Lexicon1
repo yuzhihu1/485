@@ -1,0 +1,60 @@
+% proposition 
+P -> 'with' | 'for' | 'on' | 'onto' | 'to' | 'of' | 'from' | 'before' | 'after'
+P_of -> 'of'
+Con -> 'after' | 'before'
+That -> 'that'
+
+% pronouns
+NPro_name -> 'Nadia' | 'Ross' | 'Marseilles' | 'Google'
+NPro_sub -> 'I' | 'you' | 'he' | 'she' | 'it' | 'we' | 'they'
+NPro_obj -> 'me' | 'you' | 'him' | 'her' | 'it' | 'us' | 'them'
+
+% Det 
+Det_a -> 'a' | 'the' | 'my' | 'her' | 'his' | 'this' | 'that'
+Det_an -> 'an' | 'the' | 'my' | 'her' | 'his' | 'this' | 'that'
+Det -> 'the' | 'my' | 'her' | 'his' | 'this' | 'that' | 'a' | 'an'
+Det_simple -> 'the' | 'my' | 'her' | 'his' | 'this' | 'that'
+
+% Nouns
+N -> 'cat' | 'fur' | 'rutabaga' | 'boat' | 'poodle' | 'cheese' | 'man' | 'hovercraft' | 'help' | 'menu' | 'left' | 'shot' | 'win' | 'help' | 'reward' | 'demand' | 'finding' | 'cloth' | 'eggplant' | 'autoclave' | 'elephant' | 'autopoiesis'
+N_a_simple -> 'cat' | 'fur' | 'rutabaga' | 'boat' | 'poodle' | 'cheese' | 'man' | 'hovercraft' | 'help' | 'menu' | 'left' | 'shot' | 'win' | 'help' | 'reward' | 'demand' | 'finding' | 'cloth'
+N_an -> 'eggplant' | 'autoclave' | 'elephant' | 'autopoiesis'
+N_uncount -> 'fur' | 'rutabaga' | 'cheese' | 'help' | 'eggplant' | 'cloth'
+
+% Adv
+Adv -> 'slowly' | 'immediately' | 'already' | 'really' | 'always'
+
+% Adj
+Adj -> 'handsome' | 'tall' | 'long' | 'soft'
+
+% verbs
+% past trans 
+V_p_trans -> ''
+V_p_intrans -> ''
+V_pre_intrans -> ''
+V_pre_trans -> ''
+
+% intranstive verbs that must followed by P
+V_p_intrans_musthavep_p -> ''
+
+% intransitive verbs that followed by before or after
+V_p_intrans_con -> ''
+
+
+% Passive
+Passive_simple -> 'was'
+Passive_be -> 'be'
+Passive_pfct -> 'been'
+Passive_prog -> 'being'
+
+% progressive
+prog_simple -> 'am' | 'is' | 'was' | 'are' | 'were'
+prog_be -> 'be'
+prog_pfct -> 'been'
+
+% perfect
+Pfct -> 'have' | 'has' | 'had'
+pfct_have -> 'have'
+
+% modal verbs
+Modal -> 'can' | 'may' | 'could' | 'should' | 'might' | 'must' | 'would' | 'will'
