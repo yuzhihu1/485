@@ -1,0 +1,79 @@
+(a)
+
+There are total 8 distinct trees: 
+
+(S
+  (NP (Det my) (N dog))
+  (VP
+    (V saw)
+    (NP
+      (NP (NP (Det a) (N man)) (PP (P with) (NP (Det a) (N statue))))
+      (PP (P in) (NP (Det the) (N park))))))
+(S
+  (NP (Det my) (N dog))
+  (VP
+    (V saw)
+    (NP
+      (NP (Det a) (N man))
+      (PP
+        (P with)
+        (NP
+          (NP (Det a) (N statue))
+          (PP (P in) (NP (Det the) (N park))))))))
+(S
+  (NP (Det my) (N dog))
+  (VP
+    (V saw)
+    (NP (NP (Det a) (N man)) (PP (P with) (NP (Det a) (N statue))))
+    (PP (P in) (NP (Det the) (N park)))))
+(S
+  (NP (Det my) (N dog))
+  (VP
+    (V saw)
+    (NP (Det a) (N man))
+    (PP
+      (P with)
+      (NP
+        (NP (Det a) (N statue))
+        (PP (P in) (NP (Det the) (N park)))))))
+(S
+  (NP (Det my) (N dog))
+  (VP
+    (VP
+      (VP (V saw) (NP (Det a) (N man)))
+      (PP (P with) (NP (Det a) (N statue))))
+    (PP (P in) (NP (Det the) (N park)))))
+(S
+  (NP (Det my) (N dog))
+  (VP
+    (VP
+      (V saw)
+      (NP (NP (Det a) (N man)) (PP (P with) (NP (Det a) (N statue)))))
+    (PP (P in) (NP (Det the) (N park)))))
+(S
+  (NP (Det my) (N dog))
+  (VP
+    (VP
+      (V saw)
+      (NP (Det a) (N man))
+      (PP (P with) (NP (Det a) (N statue))))
+    (PP (P in) (NP (Det the) (N park)))))
+(S
+  (NP (Det my) (N dog))
+  (VP
+    (VP (V saw) (NP (Det a) (N man)))
+    (PP
+      (P with)
+      (NP
+        (NP (Det a) (N statue))
+        (PP (P in) (NP (Det the) (N park)))))))
+
+
+(b)
+Firstly, if we replace with the grammar: NP -> NP PP | Det N, it divides S into NP PP, and recursively tries to divide NP, and the first choice is still NP PP which leads to an infinite loop, the parser will stuck. 
+
+If we replace with the grammar: NP -> Det N | NP PP, the parser successfully parse the default sentence. However it is not a general solution, since we can not guarantee that the parser would never encounter the loop NP -> NP PP, consider the example : “man saw a dog”, since it has no Det for ‘man’, it will enter the infinite loop as we saw above, which makes the parser stuck. 
+
+
+
+ 

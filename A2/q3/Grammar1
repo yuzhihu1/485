@@ -1,0 +1,91 @@
+S -> NP VP 
+NP -> NP_simple | NPro_name | NPro_sub
+NP_obj -> NP_simple | NPro_name | NPro_obj
+NP_simple -> Det_Noun | Det_Noun PP | Adjp_Noun | Adjp_Noun PP | N | N PP
+
+
+% VP -> AuxVP | V_p_NP_p | V_p_intrans_Ps | 
+AuxVP -> Passive_simple_p | prog_simple_p | Pfct_p | Modal_p
+
+
+% trans 
+V_p_NP_p -> V_p_NP | V_p_NP PP | V_p_NP Con S |  V_p_NP PVP 
+	    (slowly rewarded her to leave)
+V_p_NP -> V_p_trans NP_obj | Adv V_p_trans NP_obj | V_p_trans NP_obj Adv
+          (rewarded the cat | slowly rewarded her | rewarded her slowly)
+
+
+
+% Intrans 
+V_p_intrans_Ps -> V_p_intrans_p | V_p_intrans_p PP | V_p_intrans_musthavep_p PVP | V_p_intrans_con_p Con S 
+		 (left slowly to boat | left slowly before I eat | wanted to leave)
+
+V_p_intrans_p -> V_p_intrans | Adv V_p_intrans | V_p_intrans Adv  
+		(left slowly)
+
+
+V_p_intrans_musthavep_p -> V_p_intrans_musthavep | Adv V_p_intrans_musthavep | V_p_intrans_musthavep Adv 
+
+V_p_intrans_con_p ->  V_p_intrans_con | Adv V_p_intrans_con | V_p_intrans_con Adv 
+		   (ate)
+
+
+% verbs follows by [that]
+V_p_trans_np_that_p -> V_p_trans_np_that NP_obj That S | Adv V_p_trans_np_that NP_obj That S | V_p_trans_np_that NP_obj Adv That S 
+V_p_trans_that_p -> V_p_trans_that That S | Adv V_p_trans_that That S | V_p_trans_that Adv That S
+
+
+
+V_pre_intrans_ps -> V_pre_intrans_p | V_pre_intrans_p PP | V_pre_intrans_p PVP | V_pre_intrans_p PVP
+		   (leave slowly on boat)
+V_pre_intrans_p -> V_pre_intrans | V_pre_intrans Adv | Adv V_pre_intrans 
+		  (leave slowly)
+
+V_pre_trans_ps -> V_pre_trans_p | V_pre_trans_p PP | V_pre_trans_p PVP
+		  (reward him slowly on boat | reward him slowly on boat to leave)
+V_pre_trans_p -> V_pre_trans NP_obj | V_pre_trans NP_obj Adv | Adv V_pre_trans NP_obj 
+ 		(reward me slowly)
+
+
+
+% Adj
+Adjp -> Adj Adjp | Adj  (handsome tall)
+Adjp_Noun ->  Det_a Adjp N | Det_simple Adjp N_uncount | Adjp N
+          (a handsome tall cat | my handsome tall fur | long fur) 
+% Det 
+Det_Noun -> Det_a N_a_simple | Det_an N_an | Det_simple N_uncount
+          (a cat | an eggplant | my fur)
+
+% PP
+PP -> P NP_simple
+PVP -> P V_pre_intrans_ps | P V_pre_trans_ps
+
+
+% Passvie
+Passive_simple_p -> Passive_simple V_pp_intrans  (was eaten)
+Passive_be_p -> Passive_be V_pp_intrans  (be eaten)
+Passive_pfct_p -> Passive_pfct V_pp_intrans  (been eaten)
+Passive_prog_p -> Passive_prog V_pp_intrans  (being eaten)
+
+prog_simple_p -> prog_simple V_ing_intrans  (is eating)
+prog_be_p -> prog_be V_ing_intrans  (be eating)
+prog_pfct_p -> prog_pfct V_ing_intrans  (been eating)
+
+Pfct_p -> Pfct V_pp_intrans | Perfect prog_pfct_p | Perfect Passive_pfct_p 
+	  (has eaten | has been eating | has been eaten)
+
+pfct_have_p -> pfct_have V_pp_intrans | pfct_have prog_pfct_p | pfct_have Passive_pfct_p 
+           (have eaten | have been eating | have been eaten)
+
+Modal_p -> Modal V_present_intrans | Modal pfct_have_p | Modal prog_be_p | Modal Passive_be_p 
+           (could eat | could have been eating | could be eating | could be eaten)
+
+
+
+
+
+
+(in the people)
+
+
+

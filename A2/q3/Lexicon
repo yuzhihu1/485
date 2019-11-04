@@ -1,0 +1,84 @@
+% Zhihuan Yu, yuzhihu1, 1002106650
+P -> 'with' | 'for' | 'on' | 'onto' | 'to' | 'of' | 'from' | 'before' | 'after'
+P_of -> 'of'
+Con -> 'after' | 'before'
+That -> 'that'
+
+% pronouns
+NPro_name -> 'Nadia' | 'Ross' | 'Marseilles' | 'Google'
+NPro_sub -> 'I' | 'you' | 'he' | 'she' | 'it' | 'we' | 'they'
+NPro_obj -> 'me' | 'you' | 'him' | 'her' | 'it' | 'us' | 'them'
+
+% Det 
+Det_a -> 'a' | 'the' | 'my' | 'her' | 'his' | 'this' | 'that'
+Det_an -> 'an' | 'the' | 'my' | 'her' | 'his' | 'this' | 'that'
+Det -> 'the' | 'my' | 'her' | 'his' | 'this' | 'that' | 'a' | 'an'
+Det_simple -> 'the' | 'my' | 'her' | 'his' | 'this' | 'that'
+
+% Passive
+Passive_simple -> 'was'
+Passive_be -> 'be'
+Passive_pfct -> 'been'
+Passive_prog -> 'being'
+
+% progressive
+prog_simple -> 'am' | 'is' | 'was' | 'are' | 'were'
+prog_be -> 'be'
+prog_pfct -> 'been'
+
+% perfect
+Pfct -> 'have' | 'has' | 'had'
+pfct_have -> 'have'
+
+% modal verbs
+Modal -> 'can' | 'may' | 'could' | 'should' | 'might' | 'must' | 'would' | 'will'
+
+% Nouns
+N -> 'cat' | 'fur' | 'rutabaga' | 'boat' | 'poodle' | 'cheese' | 'man' | 'hovercraft' | 'help' | 'menu' | 'left' | 'shot' | 'win' | 'help' | 'reward' | 'demand' | 'finding' | 'cloth' | 'eggplant' | 'autoclave' | 'elephant' | 'autopoiesis'
+N_a_simple -> 'cat' | 'fur' | 'rutabaga' | 'boat' | 'poodle' | 'cheese' | 'man' | 'hovercraft' | 'help' | 'menu' | 'left' | 'shot' | 'win' | 'help' | 'reward' | 'demand' | 'finding' | 'cloth'
+N_an -> 'eggplant' | 'autoclave' | 'elephant' | 'autopoiesis'
+N_uncount -> 'fur' | 'rutabaga' | 'cheese' | 'help' | 'eggplant' | 'cloth'
+
+% Adv
+Adv -> 'slowly' | 'immediately' | 'already' | 'really' | 'always'
+
+% Adj
+Adj -> 'handsome' | 'tall' | 'long' | 'soft'
+
+% verbs
+% past trans 
+
+% past participle tense 
+V_pp_intrans -> 'helped' | 'been' | 'arrived' | 'aspired' | 'left' | 'fondled' | 'shot' | 'eaten' | 'told' | 'jumped' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given' | 'aspired'
+V_pp_trans ->  'rewarded' | 'found' | 'helped' | 'left' | 'shot' | 'eaten' | 'told' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given' | 'reminded'
+
+% ing forms of intrans Verbs
+V_ing_intrans -> 'helping' | 'being' | 'arriving' | 'aspiring' | 'leaving' | 'shooting' | 'fondling' | 'eating' | 'telling' | 'jumping' | 'believing' | 'winning' | 'seeing' | 'wanting' | 'helping' | 'demanding' |  'giving'
+
+% ing forms of trans Verbs
+V_ing_trans -> 'being' | 'having' | 'jumping' | 'fondling' | 'bringing' | 'reminding' | 'rewarding' | 'finding' | 'helping' | 'leaving' | 'shooting' | 'eating' | 'telling' | 'believing' | 'winning' | 'seeing' | 'wanting' | 'demanding' | 'giving'
+
+% past tense for Trans Verbs
+V_p_trans -> 'was' | 'had' | 'jumped' | 'fondled' | 'brought' | 'reminded' | 'rewarded' | 'found' | 'helped' | 'left' | 'shot' | 'ate' | 'told' | 'believed' | 'won' | 'saw' | 'wanted' | 'helped' | 'demanded' | 'gave'
+
+% past tense for intrans verbs
+V_p_intrans -> 'fondled' | 'was' | 'arrived' | 'helped' | 'left' | 'shot' | 'ate' | 'jumped' | 'believed' | 'won' | 'saw' | 'wanted' | 'helped' | 'demanded' | 'gave' |'aspired'  
+
+% present tense for intrans verbs
+V_pre_intrans -> 'fondle' | 'be' | 'arrive' | 'help' | 'leave' | 'shoot' | 'eat' | 'jump' | 'believe' | 'win' | 'see' | 'want' | 'help' | 'demand' | 'give' | 'aspire'
+
+% present tense for trans verbs
+V_pre_trans -> 'has' | 'fondle' | 'bring' | 'remind' | 'reward' | 'find' | 'help' | 'leave' | 'shoot' | 'eat' | 'tell' | 'believe' | 'win' | 'see' | 'want' | 'help' | 'demand' | 'give'
+
+% trans verbs could followed by that
+V_p_trans_that -> 'found' | 'believed' | 'saw' | 'demanded' 
+
+% trans verbs could followed by object then P
+V_p_trans_np_that -> 'reminded' | 'told' | 'believed'
+
+% intranstive verbs that could followed by P
+V_p_intrans_musthavep_p -> 'was' | 'wanted' | 'demanded' 
+
+% intransitive verbs that followed by before or after
+V_p_intrans_con -> 'ate' | 'arrived' | 'left' | 'shot' | 'jumped' | 'won'
+

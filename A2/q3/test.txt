@@ -1,0 +1,94 @@
+% positive ======================
+% 3.1
+she left
+Nadia left
+the cat ate
+an elephant left
+Nadia left immediately
+Nadia immediately left
+a long soft cat slowly ate
+a long soft cat ate slowly
+the cat with the long soft fur slowly ate
+%3.2
+the cat was rewarded
+the cat was rewarded slowly
+the cat was slowly rewarded
+the cat was being eaten
+the cat was being eaten slowly
+the cat is eating
+the cat has eaten
+the cat has been eating
+the cat has been eaten
+the cat had been being eaten
+the cat could be eaten
+Nadia could eat
+Nadia could have eaten
+Nadia could be eating
+Nadia would be eaten
+Nadia will have been eating
+Nadia will have been eaten
+the cat will have been being eaten
+the cat will have been being eaten slowly
+%3.3
+Nadia fondled the eggplant
+the handsome poodle brought Ross to the autoclave
+Nadia brought a cloth for the cheese
+they told her to jump onto the elephant
+she believed that Ross was already on the hovercraft
+she really wanted help
+she really aspired to help
+cheese was always on the menu
+the eggplant reminded Nadia of Ross
+Nadia rewarded the man with the eggplant
+Nadia won an elephant
+a rutabaga could have been demanded 
+autopoiesis always reminded her of Marseilles
+I saw Nadia on a boat with my elephant
+Nadia was reminded
+an elephant is being won
+an elephant had been being won
+an elephant would have been being won
+the cat ate before I brought a cat
+Nadia arrived after I brought a cat
+I told her that a cat is eating
+I told her that an elephant would have been being won
+Nadia wanted to eat cat
+Nadia wanted to eat long soft cat slowly
+% undergen =========================
+%3.1
+I eat the cat really slowly
+%3.2 
+I have been eating cat
+I have been eating cat with long soft fur on the cat
+I have been eating on the boat
+%3.3
+Nadia ate before leaving
+I was told that a cat is eating
+% negative ==========================
+% 3.1
+a elephant left
+a cat leave
+a cat leaving
+her ate slowly
+her arrived
+he arrived soft
+soft he arrived
+the Nadia arrived
+the her arrived
+the cat on the ate
+Nadia ate the long soft the cat
+Nadia ate the long soft cat slowly really
+Nadia with the long soft fur slowly ate 
+the cat with the tall her arrived 
+%3.2
+Nadia will left 
+Nadia has could leave 
+%3.3
+Nadia found 
+Ross brought to him 
+they told to jump onto the elephant
+% overgen===================================
+%3.1 
+%3.2
+%3.3
+% ==========================================
