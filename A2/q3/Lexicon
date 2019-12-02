@@ -34,8 +34,8 @@ pfct_have -> 'have'
 Modal -> 'can' | 'may' | 'could' | 'should' | 'might' | 'must' | 'would' | 'will'
 
 % Nouns
-N -> 'cat' | 'fur' | 'rutabaga' | 'boat' | 'poodle' | 'cheese' | 'man' | 'hovercraft' | 'help' | 'menu' | 'left' | 'shot' | 'win' | 'help' | 'reward' | 'demand' | 'finding' | 'cloth' | 'eggplant' | 'autoclave' | 'elephant' | 'autopoiesis'
-N_a_simple -> 'cat' | 'fur' | 'rutabaga' | 'boat' | 'poodle' | 'cheese' | 'man' | 'hovercraft' | 'help' | 'menu' | 'left' | 'shot' | 'win' | 'help' | 'reward' | 'demand' | 'finding' | 'cloth'
+N -> 'cat' | 'fur' | 'rutabaga' | 'boat' | 'poodle' | 'cheese' | 'man' | 'hovercraft' | 'help' | 'menu' | 'shot' | 'win' | 'help' | 'reward' | 'demand' | 'finding' | 'cloth' | 'eggplant' | 'autoclave' | 'elephant' | 'autopoiesis'
+N_a_simple -> 'cat' | 'fur' | 'rutabaga' | 'boat' | 'poodle' | 'cheese' | 'man' | 'hovercraft' | 'help' | 'menu' | 'shot' | 'win' | 'help' | 'reward' | 'demand' | 'finding' | 'cloth'
 N_an -> 'eggplant' | 'autoclave' | 'elephant' | 'autopoiesis'
 N_uncount -> 'fur' | 'rutabaga' | 'cheese' | 'help' | 'eggplant' | 'cloth'
 
@@ -48,8 +48,9 @@ Adj -> 'handsome' | 'tall' | 'long' | 'soft'
 % verbs
 % past trans 
 
-% past participle tense 
+% past participle tense for intrans verbs
 V_pp_intrans -> 'helped' | 'been' | 'arrived' | 'aspired' | 'left' | 'fondled' | 'shot' | 'eaten' | 'told' | 'jumped' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given' | 'aspired'
+% past participle tense for trans verbs
 V_pp_trans ->  'rewarded' | 'found' | 'helped' | 'left' | 'shot' | 'eaten' | 'told' | 'believed' | 'won' | 'seen' | 'wanted' | 'helped' | 'demanded' | 'given' | 'reminded'
 
 % ing forms of intrans Verbs
@@ -73,7 +74,7 @@ V_pre_trans -> 'has' | 'fondle' | 'bring' | 'remind' | 'reward' | 'find' | 'help
 % trans verbs could followed by that
 V_p_trans_that -> 'found' | 'believed' | 'saw' | 'demanded' 
 
-% trans verbs could followed by object then P
+% trans verbs could followed by object and P
 V_p_trans_np_that -> 'reminded' | 'told' | 'believed'
 
 % intranstive verbs that could followed by P

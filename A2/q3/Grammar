@@ -23,12 +23,12 @@ pfct_have_p -> pfct_have V_pp_intrans | pfct_have prog_pfct_p | pfct_have Passiv
 Modal_p -> Modal V_pre_intrans | Modal pfct_have_p | Modal prog_be_p | Modal Passive_be_p
 
 % trans Vp
-V_p_NP_p -> V_p_NP | V_p_NP PP | V_p_NP Con S |  V_p_NP PVP
+V_p_NP_p -> V_p_NP | V_p_NP PP | V_p_NP Con S |  V_p_NP VP_P_pre_or_ing
 V_p_NP -> V_p_trans NP_obj | Adv V_p_trans NP_obj | V_p_trans NP_obj Adv
 
 
 % Intrans Vp
-V_p_intrans_Ps -> V_p_intrans_p | V_p_intrans_p PP | V_p_intrans_musthavep_p PVP | V_p_intrans_con_p Con S
+V_p_intrans_Ps -> V_p_intrans_p | V_p_intrans_p PP | V_p_intrans_musthavep_p VP_P_pre_or_ing | V_p_intrans_con_p Con S
 
 V_p_intrans_p -> V_p_intrans | Adv V_p_intrans | V_p_intrans Adv
 
@@ -45,31 +45,33 @@ V_p_trans_that_p -> V_p_trans_that That S | Adv V_p_trans_that That S | V_p_tran
 
 
 % to do for intrans verbs
-V_pre_intrans_ps -> V_pre_intrans_p | V_pre_intrans_p PP | V_pre_intrans_p PVP
+V_pre_intrans_ps -> V_pre_intrans_p | V_pre_intrans_p PP | V_pre_intrans_p VP_P_pre_or_ing
 V_pre_intrans_p -> V_pre_intrans | V_pre_intrans Adv | Adv V_pre_intrans
 
 % p + doing for intrans verbs
-V_ing_intrans_ps -> V_ing_intrans_p | V_ing_intrans_p PP | V_ing_intrans_p PVP
+V_ing_intrans_ps -> V_ing_intrans_p | V_ing_intrans_p PP | V_ing_intrans_p VP_P_pre_or_ing
 V_ing_intrans_p -> V_ing_intrans | V_ing_intrans Adv | Adv V_ing_intrans
 
 % to do for trans verbs
-V_pre_trans_ps -> V_pre_trans_p | V_pre_trans_p PP | V_pre_trans_p PVP
+V_pre_trans_ps -> V_pre_trans_p | V_pre_trans_p PP | V_pre_trans_p VP_P_pre_or_ing
 V_pre_trans_p -> V_pre_trans NP_obj | V_pre_trans NP_obj Adv | Adv V_pre_trans NP_obj
 
 % p + doing for trans verbs
-V_ing_trans_ps -> V_ing_trans_p | V_ing_trans_p PP | V_ing_trans_p PVP
+V_ing_trans_ps -> V_ing_trans_p | V_ing_trans_p PP | V_ing_trans_p VP_P_pre_or_ing
 V_ing_trans_p -> V_ing_trans NP_obj | V_ing_trans NP_obj Adv | Adv V_ing_trans NP_obj
 
 % Adj
 Adjp -> Adj Adjp | Adj 
+
+% Nouns with Adj or Det
 Adjp_Noun ->  Det_a Adjp N | Det_simple Adjp N_uncount | Adjp N
-
-
 Det_Noun -> Det_a N_a_simple | Det_an N_an | Det_simple N_uncount
 
 % PP
 PP -> P NP_obj
-PVP -> P V_pre_intrans_ps | P V_pre_trans_ps | P V_ing_trans_ps | P V_ing_intrans_ps
+% P + present tense or P + progressive tense 
+VP_P_pre_or_ing -> P VP_pre_or_ing
+VP_pre_or_ing ->  V_pre_intrans_ps | V_pre_trans_ps | V_ing_trans_ps | V_ing_intrans_ps
 
 
 
