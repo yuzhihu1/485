@@ -1,0 +1,30 @@
+<'the cat likes the dog'
+{ :'np_vp__s:the cat likes the dog'
+    s
+    { :'det_n__np:the cat'
+        np
+        { :'lexicon:the'
+            det
+        }
+        { :'lexicon:cat'
+            n
+        }
+    }
+    { :'v_np__vp:likes the dog'
+        vp
+        { :'lexicon:likes'
+            v
+        }
+        { :'det_n__np:the dog'
+            np
+            { :'lexicon:the'
+                det
+            }
+            { :'lexicon:dog'
+                n
+            }
+        }
+    }
+}
+>
+
