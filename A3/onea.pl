@@ -11,16 +11,6 @@ dog ---> nsg.
 puppies ---> npl.
 with ---> p.
 
-npsg_vpsg_s rule
-    s ===>
-    cat> npsg,
-    cat> vpsg.
-
-nppl_vppl_s rule
-    s ===>
-    cat> nppl,
-    cat> vppl.
-
 vsg_np_vpsg rule
     vpsg ===>
     cat> vsg,
@@ -79,7 +69,15 @@ rule_np rule
     np ===>
     cat> nppl.
 
+npsg_vpsg_s rule
+    s ===>
+    cat> npsg,
+    cat> vpsg.
 
+nppl_vppl_s rule
+    s ===>
+    cat> nppl,
+    cat> vppl.
 
 
 
