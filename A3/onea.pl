@@ -1,8 +1,7 @@
-bot sub [s, lexical, vpsg, vppl, np, pp].
-    lexical sub [nprp, npl, nsg, vpl, vsg, det, p]
-    np sub [npsg, nppl].
-    
-Fido ---> nprp.
+bot sub [s, vpsg, vppl, np, pp, npsg, nppl, det].
+    lexical sub [nprp, npl, nsg, vpl, vsg, det, p].	        
+
+fido ---> nprp.
 biscuits ---> npl.
 feed ---> vpl.
 feeds ---> vsg.
@@ -10,6 +9,15 @@ the ---> det.
 dog ---> nsg.
 puppies ---> npl.
 with ---> p.
+
+rule_np rule
+    np ===>
+    cat> npsg.
+
+rule_np rule
+    np ===>
+    cat> nppl.
+
 
 vsg_np_vpsg rule
     vpsg ===>
@@ -60,14 +68,6 @@ rule_nppl rule
     nppl ===>
     cat> npl,
     cat> pp.
-
-rule_np rule
-    np ===>
-    cat> npsg.
-
-rule_np rule
-    np ===>
-    cat> nppl.
 
 npsg_vpsg_s rule
     s ===>
