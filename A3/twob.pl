@@ -1,7 +1,7 @@
 :- ale_flag(subtypecover,_,off).
 :- discontiguous sub/2,intro/2.
 
-bot sub [mood, tense, sem, cat, pos, verbal, nominal, role, gap_type].
+bot sub [mood, tense, sem, cat, pos, verbal, nominal, role].
 
     % parts of speech
         pos sub [n, p, v, det, toinf].
@@ -30,8 +30,6 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal, role, gap_type].
         indicative intro [tense:tense].
         infinitive sub [].
 
-    
-
     % semantics for verbs and nouns
     sem sub [v_sem, n_sem].
 
@@ -42,30 +40,25 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal, role, gap_type].
 	
     role sub [n_sem, none].
 	none sub [].
-                                
-    gap_type sub [obj, subj, none].
-    	obj sub [].
-    	subj sub [].
-
+                               
 
         % semantics for verbs 
 	% This should not be empty!  Fill in features for this and
         % the following subtypes:
-        v_sem sub [try, appear, promise, expect, sleep] intro [vtense:tense, agent:role, theme:role, benefit:role, experiencer:role, gap:gap_type]. 
+        v_sem sub [try, appear, promise, expect, sleep] intro [vtense:tense, agent:role, theme:role, benefit:role, experiencer:role]. 
     
-            try sub [] intro [vtense:tense, agent:role, theme:role, benefit:none, experiencer:none, gap:none].
+            try sub [] intro [vtense:tense, agent:role, theme:role, benefit:none, experiencer:none].
 
-            appear sub [] intro [vtense:tense, agent:none, theme:role, benefit:none, experiencer:none, gap:none].
+            appear sub [] intro [vtense:tense, agent:none, theme:role, benefit:none, experiencer:none].
 
-            promise sub [] intro [vtense:tense, agent:role, theme:role, benefit:role, experiencer:none, gap:subj].
+            promise sub [] intro [vtense:tense, agent:role, theme:role, benefit:role, experiencer:none].
 
-            expect sub [] intro [vtense:tense, agent:role, theme:role, benefit:none, experiencer:none, gap:obj].
+            expect sub [] intro [vtense:tense, agent:role, theme:role, benefit:none, experiencer:none].
 
-            sleep sub [] intro [vtense:tense, agent:none, theme:none, benefit:none, experiencer:role, gap:none].
+            sleep sub [] intro [vtense:tense, agent:none, theme:none, benefit:none, experiencer:role].
 
 
 % Grammar 
-
 % the teacher, the student 
 np_rule rule
     np ===>
@@ -83,14 +76,14 @@ infclause_rule rule
 % vp = v + inf_clause
 vp_rule rule
     (vp, vsem:(vtense:past), g:Gap) ===>
-    cat> (v, vsem:(vtense:past, agent:none, theme:Gap, benefit:none, experiencer:none, gap:none)),
+    cat> (v, vsem:(vtense:past, agent:none, theme:Gap, benefit:none, experiencer:none)),
     cat> (inf_clause, clause:Gap).
 
 % the student expected the teacher to sleep
 % vp = v + np + inf_clause
 vp_rule rule
     (vp, vsem:(vtense:past), g:Gap) ===>
-    cat> (v, vsem:(vtense:past, agent:Gap, theme:Object, benefit:none, experiencer:none, gap:obj)),
+    cat> (v, vsem:(vtense:past, agent:Gap, theme:Object, benefit:none, experiencer:none)),
     cat> (np, nsem:Object),
     cat> (inf_clause, clause:Object).
 
@@ -98,7 +91,7 @@ vp_rule rule
 % vp = v + np + inf_clause
 vp_rule rule
     (vp, vsem:(vtense:past), g:Gap) ===>
-    cat> (v, vsem:(vtense:past, agent:Gap, theme:Object, benefit:Object, experiencer:none, gap:subj)),
+    cat> (v, vsem:(vtense:past, agent:Gap, theme:Object, benefit:Object, experiencer:none)),
     cat> (np, nsem:Object),
     cat> (inf_clause, clause:Gap).
 
@@ -106,7 +99,7 @@ vp_rule rule
 % vp = v + inf_clause
 vp_rule rule
     (vp, vsem:(vtense:past), g:Gap) ===>
-    cat> (v, vsem:(vtense:past, agent:Gap, theme:Gap, benefit:none, experiencer:none, gap:none)),
+    cat> (v, vsem:(vtense:past, agent:Gap, theme:Gap, benefit:none, experiencer:none)),
     cat> (inf_clause, clause:Gap).
 
 % S = np + vp
@@ -117,15 +110,15 @@ s_rule rule
 
 
 % Lexicon
-appeared ---> (v, vsem:(appear, vtense:past, agent:none, theme:Theme, benefit:none, experiencer:none, gap:none)).
+appeared ---> (v, vsem:(appear, vtense:past, agent:none, theme:Theme, benefit:none, experiencer:none)).
 
-expected ---> (v, vsem:(expect, vtense:past, agent:Agent, theme:Theme, benefit:none, experiencer:none, gap:obj)).
+expected ---> (v, vsem:(expect, vtense:past, agent:Agent, theme:Theme, benefit:none, experiencer:none)).
 
-promised ---> (v, vsem:(promise, vtense:past, agent:Agent, theme:Theme, benefit:Benefit, experiencer:none, gap:subj)).
+promised ---> (v, vsem:(promise, vtense:past, agent:Agent, theme:Theme, benefit:Benefit, experiencer:none)).
 
-sleep ---> (v, vsem:(sleep, vtense:present, agent:none, theme:none, benefit:none, experiencer:Experiencer, gap:none)).
+sleep ---> (v, vsem:(sleep, vtense:present, agent:none, theme:none, benefit:none, experiencer:Experiencer)).
 
-tried ---> (v, vsem:(try, vtense:past, agent:Agent, theme:Theme, benefit:none, experiencer:none, gap:none)).
+tried ---> (v, vsem:(try, vtense:past, agent:Agent, theme:Theme, benefit:none, experiencer:none)).
 
 student ---> (n, nsem:student).
 
