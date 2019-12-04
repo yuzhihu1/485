@@ -1,0 +1,32 @@
+% Zhihuan Yu, yuzhihu1, 1002106650
+
+
+ii) the student appeared to sleep
+    
+    appeared:
+	Theme: "the student"
+
+    sleep:
+	Experiencer: "the student"
+
+
+iii) the student promised the teacher to sleep
+
+    promised:
+	Agent: "the student"
+	Theme: "to sleep"
+	Beneficiary: "the teacher"
+
+    sleep:
+	Experiencer: "the student"
+
+
+iv) the student expected the teacher to sleep:
+
+    expected:
+	Agent:"the student"
+	Theme:"the teacher to sleep"
+
+    sleep:
+	Experiencer: "the teacher"
+
