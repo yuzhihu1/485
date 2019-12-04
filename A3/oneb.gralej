@@ -1,0 +1,44 @@
+<'fido feeds the dog with biscuits'
+{ :'np_vp_s:fido feeds the dog with biscuits'
+    s(
+        noun: $0 = singular)
+    { :'lexicon:fido'
+        np(
+            noun: $0)
+    }
+    { :'v_np_vp:feeds the dog with biscuits'
+        vp(
+            noun: $0)
+        { :'lexicon:feeds'
+            v(
+                noun: $0)
+        }
+        { :'rule_np//3:the dog with biscuits'
+            np(
+                noun: singular)
+            { :'lexicon:the'
+                det
+            }
+            { :'lexicon:dog'
+                n(
+                    noun: singular)
+            }
+            { :'p_np_pp:with biscuits'
+                pp
+                { :'lexicon:with'
+                    p
+                }
+                { :'rule_np//0:biscuits'
+                    np(
+                        noun: plural)
+                    { :'lexicon:biscuits'
+                        n(
+                            noun: plural)
+                    }
+                }
+            }
+        }
+    }
+}
+>
+
