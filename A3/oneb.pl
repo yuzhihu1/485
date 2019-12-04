@@ -1,17 +1,19 @@
+% Zhihuan Yu, yuzhihu1, 1002106650
+
 bot sub [cat, noun_feature].
     cat sub [p, det, pp, has_feature].
+        p sub [].
+	det sub [].
+	pp sub [].
     has_feature sub [s, np, vp, n, v] intro [noun:noun_feature].
+	s sub [].
+	np sub [].
+	vp sub [].
+	n sub [].
+	v sub [].
     noun_feature sub [singular, plural].
    
-fido ---> (np, noun:singular).
-biscuits ---> (n, noun:plural).
-feed ---> (v, noun:plural).
-feeds ---> (v, noun:singular).
-the ---> det.
-dog ---> (n, noun:singular).
-puppies ---> (n, noun:plural).
-with ---> p.
-
+% rules
 p_np_pp rule
     pp ===>
     cat> p,
@@ -46,4 +48,23 @@ np_vp_s rule
     (s, noun:Noun) ===>
     cat> (np, noun:Noun),
     cat> (vp, noun:Noun).
+
+
+% Lexicon
+biscuits ---> (n, noun:plural).
+
+dog ---> (n, noun:singular).
+
+fido ---> (np, noun:singular).
+
+feed ---> (v, noun:plural).
+
+feeds ---> (v, noun:singular).
+
+the ---> det.
+
+puppies ---> (n, noun:plural).
+
+with ---> p.
+
 

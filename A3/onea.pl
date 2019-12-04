@@ -1,15 +1,24 @@
-bot sub [s, vpsg, vppl, np, pp, npsg, nppl, det].
-    lexical sub [nprp, npl, nsg, vpl, vsg, det, p].	        
+% Zhihuan Yu, yuzhihu1, 1002106650
 
-fido ---> nprp.
-biscuits ---> npl.
-feed ---> vpl.
-feeds ---> vsg.
-the ---> det.
-dog ---> nsg.
-puppies ---> npl.
-with ---> p.
+bot sub [s, vpsg, vppl, np, pp, npsg, nppl, lexical].
+    s sub [].
+    vpsg sub [].
+    vppl sub [].
+    np sub [].
+    pp sub [].
+    npsg sub [].
+    nppl sub [].
+    lexical sub [nprp, npl, nsg, vpl, vsg, det, p].	
+	nprp sub [].
+	npl sub [].
+	nsg sub [].
+	vpl sub [].
+	vsg sub [].
+	det sub [].
+	p sub [].
+	        
 
+% rules
 rule_np rule
     np ===>
     cat> npsg.
@@ -80,7 +89,23 @@ nppl_vppl_s rule
     cat> vppl.
 
 
+% Lexicon 
 
+biscuits ---> npl.
+
+dog ---> nsg.
+
+fido ---> nprp.
+
+feed ---> vpl.
+
+feeds ---> vsg.
+
+the ---> det.
+
+puppies ---> npl.
+
+with ---> p.
 
 
 
