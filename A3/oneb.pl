@@ -42,7 +42,7 @@ rule_np rule
 v_np_vp rule
     (vp, noun:Noun) ===>
     cat> (v, noun:Noun),
-    cat> (np, noun:Noun).
+    cat> np.
 
 np_vp_s rule
     (s, noun:Noun) ===>
