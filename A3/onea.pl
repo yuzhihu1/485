@@ -19,14 +19,15 @@ bot sub [s, vpsg, vppl, np, pp, npsg, nppl, lexical].
 	        
 
 % rules
-rule_np rule
-    np ===>
-    cat> npsg.
+nppl_vppl_s rule
+    s ===>
+    cat> nppl,
+    cat> vppl.
 
-rule_np rule
-    np ===>
-    cat> nppl.
-
+npsg_vpsg_s rule
+    s ===>
+    cat> npsg,
+    cat> vpsg.
 
 vsg_np_vpsg rule
     vpsg ===>
@@ -37,6 +38,14 @@ vpl_np_vppl rule
     vppl ===>
     cat> vpl,
     cat> np.
+
+rule_np rule
+    np ===>
+    cat> npsg.
+
+rule_np rule
+    np ===>
+    cat> nppl.
 
 p_np_pp rule
     pp ===>
@@ -77,16 +86,6 @@ rule_nppl rule
     nppl ===>
     cat> npl,
     cat> pp.
-
-npsg_vpsg_s rule
-    s ===>
-    cat> npsg,
-    cat> vpsg.
-
-nppl_vppl_s rule
-    s ===>
-    cat> nppl,
-    cat> vppl.
 
 
 % Lexicon 
