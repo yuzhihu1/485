@@ -39,6 +39,11 @@ vpl_np_vppl rule
     cat> vpl,
     cat> np.
 
+p_np_pp rule
+    pp ===>
+    cat> p,
+    cat> np.
+
 rule_np rule
     np ===>
     cat> npsg.
@@ -46,11 +51,6 @@ rule_np rule
 rule_np rule
     np ===>
     cat> nppl.
-
-p_np_pp rule
-    pp ===>
-    cat> p,
-    cat> np.
 
 rule_npsg rule
     npsg ===>
