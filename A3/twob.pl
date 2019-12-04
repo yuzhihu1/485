@@ -79,13 +79,6 @@ infclause_rule rule
     cat> toinf,
     cat> (v, vsem:(vtense:present, experiencer:Exp)).
 
-% the student tried to sleep
-% vp = v + inf_clause
-vp_rule rule
-    (vp, vsem:(vtense:past), g:Gap) ===>
-    cat> (v, vsem:(vtense:past, agent:Gap, theme:Gap, benefit:none, experiencer:none, gap:none)),
-    cat> (inf_clause, clause:Gap).
-
 % the student appeared to sleep
 % vp = v + inf_clause
 vp_rule rule
@@ -109,15 +102,22 @@ vp_rule rule
     cat> (np, nsem:Object),
     cat> (inf_clause, clause:Gap).
 
+% the student tried to sleep
+% vp = v + inf_clause
+vp_rule rule
+    (vp, vsem:(vtense:past), g:Gap) ===>
+    cat> (v, vsem:(vtense:past, agent:Gap, theme:Gap, benefit:none, experiencer:none, gap:none)),
+    cat> (inf_clause, clause:Gap).
+
 % S = np + vp
 s_rule rule
-    s ===>
+    (s, g:Subject) ===>
     cat> (np, nsem:Subject),
     cat> (vp, vsem:(vtense:past), g:Subject).
 
 
 % Lexicon
-appeard ---> (v, vsem:(appear, vtense:past, agent:none, theme:Theme, benefit:none, experiencer:none, gap:none)).
+appeared ---> (v, vsem:(appear, vtense:past, agent:none, theme:Theme, benefit:none, experiencer:none, gap:none)).
 
 expected ---> (v, vsem:(expect, vtense:past, agent:Agent, theme:Theme, benefit:none, experiencer:none, gap:obj)).
 
@@ -134,3 +134,4 @@ teacher ---> (n, nsem:teacher).
 the ---> det.
 
 to ---> toinf.
+

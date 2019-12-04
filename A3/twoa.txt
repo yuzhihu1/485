@@ -14,7 +14,7 @@ iii) the student promised the teacher to sleep
 
     promised:
 	Agent: "the student"
-	Theme: "to sleep"
+	Theme: "the teacher"
 	Beneficiary: "the teacher"
 
     sleep:
@@ -25,7 +25,7 @@ iv) the student expected the teacher to sleep:
 
     expected:
 	Agent:"the student"
-	Theme:"the teacher to sleep"
+	Theme:"the teacher"
 
     sleep:
 	Experiencer: "the teacher"
