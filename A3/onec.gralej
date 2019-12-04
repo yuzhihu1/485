@@ -15,7 +15,7 @@
         }
         { :'rule_np//3:the dog with biscuits'
             np(
-                noun: $0)
+                noun: singular)
             { :'lexicon:the'
                 det
             }

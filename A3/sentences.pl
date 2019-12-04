@@ -1,4 +1,25 @@
 % Zhihuan Yu, yuzhihu1, 1002106650
+
+% question one
+% pass
+test_sent([fido,feeds,the,dog]).
+test_sent([fido,feeds,fido]).
+test_sent([fido,feeds,biscuits], fails).
+test_sent([fido,feeds,the,dog,with,biscuits]).
+test_sent([biscuits,feed,biscuits], fails).
+test_sent([fido,feeds,the,dog,with,the,dog]).
+test_sent([the,dog,with,biscuits,feeds,the,dog]).
+
+% fail
+test_sent([fido,feeds,dog], fails).
+test_sent([fido,feeds,the,fido], fails).
+test_sent([fido,feeds,the,biscuits], fails).
+test_sent([fido,feed,the,dog], fails).
+test_sent([biscuits,feeds,the,dog], fails).
+
+
+
+% question two
 % pass
 test_sent([the,student,tried,to,sleep]).
 test_sent([the,teacher,tried,to,sleep]).
