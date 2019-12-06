@@ -15,8 +15,8 @@ bot sub [mood, tense, sem, cat, pos, verbal, nominal, role].
 
     % phrasal categories
     cat sub [vproj, np].
-        vproj sub [inf_clause, s, vp] intro [mood:mood, g:n_sem].
-            inf_clause intro [mood:infinitive, clause:n_sem].
+        vproj sub [inf_clause, s, vp] intro [mood:mood, transit1:n_sem, transit2:n_sem].
+            inf_clause intro [mood:infinitive].
             s intro [mood:indicative].
             vp intro [mood:indicative].
         np sub [].
@@ -70,45 +70,45 @@ np_rule rule
 % to sleep
 % inf_clause = to + v
 infclause_rule rule
-    (inf_clause, clause:Exp) ===>
+    (inf_clause, transit2:Exp) ===>
     cat> toinf,
     cat> (v, vsem:(vtense:present, experiencer:Exp)).
 
 % the student appeared to sleep
 % vp = v + inf_clause
 vp_rule rule
-    (vp, vsem:(vtense:past), g:Gap) ===>
-    cat> (v, vsem:(vtense:past, agent:none, theme:Gap, benefit:none, experiencer:none)),
-    cat> (inf_clause, clause:Gap).
+    (vp, vsem:(vtense:past), transit1:Role) ===>
+    cat> (v, vsem:(vtense:past, agent:none, theme:Role, benefit:none, experiencer:none)),
+    cat> (inf_clause, transit2:Role).
 
 % the student expected the teacher to sleep
 % vp = v + np + inf_clause
 vp_rule rule
-    (vp, vsem:(vtense:past), g:Gap) ===>
-    cat> (v, vsem:(vtense:past, agent:Gap, theme:Object, benefit:none, experiencer:none)),
+    (vp, vsem:(vtense:past), transit1:Role) ===>
+    cat> (v, vsem:(vtense:past, agent:Role, theme:Object, benefit:none, experiencer:none)),
     cat> (np, nsem:Object),
-    cat> (inf_clause, clause:Object).
+    cat> (inf_clause, transit2:Object).
 
 % the student promised the teacher to sleep
 % vp = v + np + inf_clause
 vp_rule rule
-    (vp, vsem:(vtense:past), g:Gap) ===>
-    cat> (v, vsem:(vtense:past, agent:Gap, theme:Object, benefit:Object, experiencer:none)),
+    (vp, vsem:(vtense:past), transit1:Role) ===>
+    cat> (v, vsem:(vtense:past, agent:Role, theme:Object, benefit:Object, experiencer:none)),
     cat> (np, nsem:Object),
-    cat> (inf_clause, clause:Gap).
+    cat> (inf_clause, transit2:Role).
 
 % the student tried to sleep
 % vp = v + inf_clause
 vp_rule rule
-    (vp, vsem:(vtense:past), g:Gap) ===>
-    cat> (v, vsem:(vtense:past, agent:Gap, theme:Gap, benefit:none, experiencer:none)),
-    cat> (inf_clause, clause:Gap).
+    (vp, vsem:(vtense:past), transit1:Role) ===>
+    cat> (v, vsem:(vtense:past, agent:Role, theme:Role, benefit:none, experiencer:none)),
+    cat> (inf_clause, transit2:Role).
 
 % S = np + vp
 s_rule rule
-    (s, g:Subject) ===>
+    (s, transit1:Subject) ===>
     cat> (np, nsem:Subject),
-    cat> (vp, vsem:(vtense:past), g:Subject).
+    cat> (vp, vsem:(vtense:past), transit1:Subject).
 
 
 % Lexicon
