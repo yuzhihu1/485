@@ -1,3 +1,5 @@
+% Zhihuan Yu, yuzhihu1, 1002106650
+
 :- ale_flag(subtypecover,_,off).
 :- discontiguous sub/2,intro/2.
 

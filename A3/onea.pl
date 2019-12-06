@@ -1,4 +1,5 @@
 % Zhihuan Yu, yuzhihu1, 1002106650
+% answer for onea.pl
 
 bot sub [s, vpsg, vppl, np, pp, npsg, nppl, lexical].
     s sub [].
@@ -44,14 +45,6 @@ p_np_pp rule
     cat> p,
     cat> np.
 
-rule_np rule
-    np ===>
-    cat> npsg.
-
-rule_np rule
-    np ===>
-    cat> nppl.
-
 rule_npsg rule
     npsg ===>
     cat> nprp.
@@ -86,6 +79,14 @@ rule_nppl rule
     nppl ===>
     cat> npl,
     cat> pp.
+
+rule_np rule
+    np ===>
+    cat> npsg.
+
+rule_np rule
+    np ===>
+    cat> nppl.
 
 
 % Lexicon 
