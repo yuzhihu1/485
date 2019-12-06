@@ -1,11 +1,10 @@
-% Zhihuan Yu, yuzhihu1, 1002106650
-% twoc.gralej
 <'the student appeared to sleep'
 { :'s_rule:the student appeared to sleep'
     s(
-        g: $0 = n_sem,
         mood: indicative(
             tense: tense),
+        transit1: $0 = n_sem,
+        transit2: n_sem,
         vsem: 'mgsat(v_sem)')
     { :'np_rule:the student'
         np(
@@ -20,9 +19,10 @@
     }
     { :'vp_rule//0:appeared to sleep'
         vp(
-            g: $0,
             mood: indicative(
                 tense: tense),
+            transit1: $0,
+            transit2: n_sem,
             vsem: v_sem(
                 agent: role,
                 benefit: role,
@@ -40,9 +40,9 @@
         }
         { :'infclause_rule:to sleep'
             inf_clause(
-                clause: $0,
-                g: n_sem,
                 mood: infinitive,
+                transit1: n_sem,
+                transit2: $0,
                 vsem: 'mgsat(v_sem)')
             { :'lexicon:to'
                 toinf
